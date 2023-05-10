@@ -19,6 +19,10 @@ class User extends Authenticatable
         'password',
         'role_id',
         'is_active',
+        'number',
+        'year',
+        'cvc',
+        'summa'
     ];
 
 
@@ -38,5 +42,27 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class);
+    }
+
+    public function preparats(){
+        return $this->belongsToMany(Preparat::class)
+            ->withPivot('count','sales')
+            ->withTimestamps();
+    }
+
+    public function preparatsWS($status){
+        return $this->belongsToMany(Preparat::class)
+            ->wherePivot('sales',$status)
+            ->withPivot('count','sales')
+            ->withTimestamps();
+    }
+
+    public function payments(){
+        return $this->hasMany(Payment::class);
+    }
+
+    public function products(){
+        return $this->belongsToMany(Preparat::class,'preparat_user_like')
+            ->withTimestamps();
     }
 }

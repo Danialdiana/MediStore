@@ -7,8 +7,8 @@
             <div class="col-md-12">
                 <form action="{{route('adm.users.search')}}" method="GET">
                     <div class="input-group mb-3">
-                        <input type="text" name="search" class="form-control" placeholder="Input username" aria-label="Username" aria-describedby="basic-addon1">
-                        <button type="submit" class="btn btn-outline-info">Search</button>
+                        <input type="text" name="search" class="form-control" placeholder="{{__('message.here')}}" aria-label="Username" aria-describedby="basic-addon1">
+                        <button type="submit" class="btn btn-outline-info">{{__('message.search')}}</button>
                     </div>
                 </form>
 
@@ -16,9 +16,9 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
+                        <th scope="col">{{__('message.tname')}}</th>
+                        <th scope="col">{{__('message.temail')}}</th>
+                        <th scope="col">{{__('message.trole')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,7 +36,7 @@
                                             <option @if($r->id==$users[$i]->role_id) selected @endif value="{{$r->id}}">{{$r->role}}</option>
                                         @endforeach
                                     </select>
-                                    <button type="submit" class="btn btn-primary">Change</button>
+                                    <button type="submit" class="btn btn-primary">{{__('message.change')}}</button>
                                 </form>
                             </td>
                         </tr>

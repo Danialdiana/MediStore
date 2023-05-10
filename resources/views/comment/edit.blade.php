@@ -20,14 +20,14 @@
                                     <h1 class="card-title text-center">{{$preparat->name}} </h1>
                                     <p class="card-text mt-3">{{$preparat->content}}</p>
                                     <h2 class="card-text text-center m-5">{{$preparat->price}} T</h2>
-                                    <h5 class="card-text text-muted">Срок годности:________{{$preparat->term}}</h5>
-                                    <h5 class="card-text text-muted">Страна:_______________{{$preparat->country}}</h5>
-                                    <h5 class="card-text text-muted">Производитель:________{{$preparat->company}}</h5>
+                                    <h5 class="card-text text-muted">{{__('message.edate')}}:________{{$preparat->term}}</h5>
+                                    <h5 class="card-text text-muted">{{__('message.country')}}:_______________{{$preparat->country}}</h5>
+                                    <h5 class="card-text text-muted">{{__('message.m')}}:________{{$preparat->company}}</h5>
                                 </div>
                             </div>
                             <div class="card-footer justify-content-around">
-                                <a href="{{route('preparats.edit',$preparat->id)}}" class="btn btn-success">Изменить</a>
-                                <a href="{{route('preparats.index')}}" class="btn btn-primary">Главная страница</a>
+                                <a href="{{route('preparats.edit',$preparat->id)}}" class="btn btn-success">{{__('message.edit')}}</a>
+                                <a href="{{route('preparats.index')}}" class="btn btn-primary">{{__('message.main')}}</a>
                             </div>
                         </div>
                     </div>
@@ -42,9 +42,9 @@
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="preparat_id" value="{{$preparat->id}}">
-                    <label for="commentInput" class=" mt-7" >Отзыв:</label>
+                    <label for="commentInput" class=" mt-7" >{{__('message.comment')}}:</label>
                     <textarea class="form-control mt-2" id="commentInput" name="content" cols="50" rows="5">{{$comment->content}}</textarea>
-                    <button class="btn btn-success mt-3" type="submit">SAVE COMMENT</button>
+                    <button class="btn btn-success mt-3" type="submit">{{__('message.save')}}</button>
                 </form>
             </div>
         </div>

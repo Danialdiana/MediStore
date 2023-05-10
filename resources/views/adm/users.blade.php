@@ -7,8 +7,8 @@
             <div class="col-md-10">
                 <form action="{{route('adm.users.search')}}" method="GET">
                     <div class="input-group mb-3">
-                        <input type="text" name="search" class="form-control" placeholder="Input username" aria-label="Username" aria-describedby="basic-addon1">
-                        <button type="submit" class="btn btn-outline-info">Search</button>
+                        <input type="text" name="search" class="form-control" placeholder="{{__('message.here')}}" aria-label="Username" aria-describedby="basic-addon1">
+                        <button type="submit" class="btn btn-outline-info">{{__('message.search')}}</button>
                     </div>
                 </form>
 
@@ -16,10 +16,10 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Ban/Unban</th>
+                        <th scope="col">{{__('message.tname')}}</th>
+                        <th scope="col">{{__('message.temail')}}</th>
+                        <th scope="col">{{__('message.trole')}}</th>
+                        <th scope="col">###</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
                                 <form action="@if($users[$i]->is_active) {{route('adm.users.ban',$users[$i]->id)}} @else {{route('adm.users.unban',$users[$i]->id)}} @endif" method="post">
                                     @csrf
                                     @method('PUT')
-                                    <button type="submit" class="btn {{$users[$i]->is_active ? 'btn-danger': 'btn-success'}}"> @if($users[$i]->is_active)BAN @else UNBAN @endif</button>
+                                    <button type="submit" class="btn {{$users[$i]->is_active ? 'btn-danger': 'btn-success'}}"> @if($users[$i]->is_active){{__('message.ban')}} @else {{__('message.unban')}} @endif</button>
                                 </form>
                             </td>
                         </tr>

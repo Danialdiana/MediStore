@@ -9,8 +9,8 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Categories</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">{{__('message.category')}}</th>
+                        <th scope="col">{{__('message.type')}}</th>
                         <th scope="col">#</th>
                     </tr>
                     </thead>
@@ -30,7 +30,7 @@
                                 <form action="{{route('adm.types.destroy',$types[$i]->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-outline-danger" type="submit">DELETE</button>
+                                    <button class="btn btn-outline-danger" type="submit">{{__('message.delete')}}</button>
                                 </form>
                             </td>
                         </tr>
@@ -40,14 +40,14 @@
 
                 <form action="{{route('adm.types.store')}}" method="post">
                     @csrf
-                    Category:
+                    {{__('message.category')}}:
                     <select  class="form-control @error('category_id')is-invalid @enderror " id="selectInput" name="category_id">
                         @foreach($category as $cat)
                             <option value="{{$cat->id}}">{{$cat->category}}</option>
                         @endforeach
                     </select>
                     <input type="text" name="type" placeholder="Input new type" class="form-control">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary">{{__('message.add')}}</button>
                 </form>
             </div>
         </div>
