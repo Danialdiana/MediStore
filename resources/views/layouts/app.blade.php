@@ -110,6 +110,9 @@
                                     <a class="dropdown-item" href="{{ route('select.index') }}">
                                         {{ __('message.chosen') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('preparat.index') }}">
+                                        API
+                                    </a>
                                 </div>
                             </li>
                             <li class="dropdown cart-nav dropdown-slide">
